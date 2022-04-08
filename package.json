@@ -7,6 +7,7 @@
     "postinstall": "npx gulp clearAndBuildAll",
     "start": "node index.js",
     "buildAll": "npx gulp buildAll",
+    "buildFile": "npx gulp buildFile --file /home/gbr/program/work/unit_tests/src/qwe/qwe.ts",
     "clear": "npx gulp clear",
     "clearAndBuildAll": "npx gulp clearAndBuildAll"
   },

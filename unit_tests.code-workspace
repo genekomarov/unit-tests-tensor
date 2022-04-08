@@ -4,5 +4,15 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"filewatcher.commands": [
+
+			{
+				"match": "\\.ts*",
+				"isAsync": true,
+				"cmd": "cd ${workspaceRoot} && npx gulp buildFile --file ${file}",
+				"event": "onFileChange"
+			}
+		]
+	}
 }
