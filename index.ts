@@ -1,2 +1,2 @@
-const printHelloWorld = require('./bin/example').default;
-printHelloWorld();
+const start = require('./bin/endpoint').default;
+start();
