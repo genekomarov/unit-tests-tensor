@@ -9,7 +9,8 @@
     "buildAll": "npx gulp buildAll",
     "buildFile": "npx gulp buildFile --file /home/gbr/program/work/unit_tests/src/qwe/qwe.ts",
     "clear": "npx gulp clear",
-    "clearAndBuildAll": "npx gulp clearAndBuildAll"
+    "clearAndBuildAll": "npx gulp clearAndBuildAll",
+    "test": "mocha bin/v1/_tests bin/v2/_tests"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,10 @@
   "license": "",
   "homepage": "",
   "devDependencies": {
+    "@types/chai": "^4.3.0",
     "@types/express": "^4.17.11",
     "@types/mocha": "^9.1.0",
+    "chai": "^4.3.6",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-typescript": "^6.0.0-alpha.1",

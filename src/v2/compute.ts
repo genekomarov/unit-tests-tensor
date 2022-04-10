@@ -7,7 +7,8 @@ export default function compute(elements: number[]): number {
     const calc = new Calc(FIRST_ARG, INC);
     let result: number = 0;
     elements.forEach((element) => {
-        result += calc.calc(element);
+        result += calc.sum(element);
     });
+    calc.destroy();
     return result;
 }

@@ -13,6 +13,7 @@
 				"cmd": "cd ${workspaceRoot} && npx gulp buildFile --file ${file}",
 				"event": "onFileChange"
 			}
-		]
+		],
+		"npm-scripts.showStartNotification": false
 	}
 }

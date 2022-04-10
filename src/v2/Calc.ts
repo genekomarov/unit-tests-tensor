@@ -12,13 +12,22 @@ export default class Calc {
         this._inc = inc;
     }
 
-    calc(thirdArg: number): number {
+    sum(thirdArg: number): number {
         if (this._isDestroyed) {
-            console.error('[Calc]: [calc] Задестроен!');
+            console.error('[Calc]: [sum] Задестроен!');
             return;
         }
         this._secondArg += this._inc;
         return this._firstArg + this._secondArg + thirdArg;
+    };
+
+    mult(thirdArg: number): number {
+        if (this._isDestroyed) {
+            console.error('[Calc]: [mult] Задестроен!');
+            return;
+        }
+        this._secondArg += this._inc;
+        return this._firstArg * this._secondArg * thirdArg;
     };
 
     destroy(): void {
