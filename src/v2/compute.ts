@@ -12,3 +12,5 @@ export default function compute(elements: number[]): number {
     calc.destroy();
     return result;
 }
+
+// Вопрос: как тестировать класс Calc?

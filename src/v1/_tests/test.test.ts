@@ -1,4 +1,11 @@
 import 'mocha';
+
+/**
+ * Изучаем как выполняется тесты.
+ * Обратить внимание на то, что сперва будут последовательно выполнены инструкции во всех блоках describe.
+ * Только после этого будут выполнены блоки it.
+ */
+
 console.log('file - begin');
 describe('describe level 1', () => {
     console.log('describe level 1 - begin');

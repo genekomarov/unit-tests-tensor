@@ -3,17 +3,71 @@ import {assert} from 'chai';
 
 import Calc from '../Calc';
 
-interface IState {
-    instance: Calc
-}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const data = {
-    firstArg: 7,
-    inc: 2,
-    thirdArgs: [1, 2, 3, 4],
-    results: [10, 13, 16, 19],
-    noOkThirdArg: 5
-};
+describe('Calc - придумать как тестировать!', () => {
+    it('Как тестируем то???', () => {
+
+    });
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+describe('Calc - тестирование базовых сценариев с разнами данными.', () => {
+    it('Проверяем сложение- 1', () => {
+        const calc = new Calc(7, 2);
+        assert.equal(calc.sum(1), 10);
+        assert.equal(calc.sum(2), 13);
+        assert.equal(calc.sum(3), 16);
+        assert.equal(calc.sum(4), 19);
+        calc.destroy();
+        assert.equal(calc.sum(5), undefined);
+    });
+
+    it('Проверяем сложение- 2', () => {
+        const calc = new Calc(7, 2);
+        assert.equal(calc.sum(2), 11);
+        assert.equal(calc.sum(3), 14);
+        assert.equal(calc.sum(4), 17);
+        assert.equal(calc.sum(5), 20);
+        calc.destroy();
+        assert.equal(calc.sum(6), undefined);
+    });
+
+    it('Проверяем сложение- 3', () => {
+        const calc = new Calc(8, 2);
+        assert.equal(calc.sum(1), 11);
+        assert.equal(calc.sum(2), 14);
+        assert.equal(calc.sum(3), 17);
+        assert.equal(calc.sum(4), 20);
+        calc.destroy();
+        assert.equal(calc.sum(5), undefined);
+    });
+
+    it('Проверяем сложение- 4', () => {
+        const calc = new Calc(8, 2);
+        assert.equal(calc.sum(2), 12);
+        assert.equal(calc.sum(3), 15);
+        assert.equal(calc.sum(4), 18);
+        assert.equal(calc.sum(5), 21);
+        calc.destroy();
+        assert.equal(calc.sum(6), undefined);
+    });
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+describe('Calc - как упаковать код теста в функцию.', () => {
+    it('Упаковать надо!!!', () => {
+
+    });
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const bigTests = {
     sum: (
@@ -25,16 +79,16 @@ const bigTests = {
         },
         exp: {
             results: number[]
-        }      
+        }
     ) => {
         const {firstArg, inc, thirdArgs, noOkThirdArg} = opts;
 
         const calc = new Calc(firstArg, inc);
-        
+
         thirdArgs.forEach((thirdArg, index) => {
             assert.equal(calc.sum(thirdArg), exp.results[index]);
         });
-        
+
         calc.destroy();
         assert.equal(calc.sum(noOkThirdArg), undefined);
     },
@@ -48,19 +102,78 @@ const bigTests = {
         },
         exp: {
             results: number[]
-        }      
+        }
     ) => {
         const {firstArg, inc, thirdArgs, noOkThirdArg} = opts;
 
         const calc = new Calc(firstArg, inc);
-        
+
         thirdArgs.forEach((thirdArg, index) => {
             assert.equal(calc.mult(thirdArg), exp.results[index]);
         });
-        
+
         calc.destroy();
         assert.equal(calc.mult(noOkThirdArg), undefined);
     }
+};
+
+describe('Calc - упаковываем код тестирования в функцию.', () => {
+    it('Проверяем сложение- 1.1', () => {
+        bigTests.sum({
+            firstArg: 7,
+            inc: 2,
+            thirdArgs: [1, 2, 3, 4],
+            noOkThirdArg: 5
+        }, {
+            results: [10, 13, 16, 19]
+        });
+    });
+
+    it('Проверяем сложение- 1.2', () => {
+        bigTests.sum({
+            firstArg: 7,
+            inc: 2,
+            thirdArgs: [2, 3, 4, 5],
+            noOkThirdArg: 5
+        }, {
+            results: [11, 14, 17, 20]
+        });
+    });
+
+    it('Проверяем умножение- 2.1', () => {
+        bigTests.mult({
+            firstArg: 7,
+            inc: 2,
+            thirdArgs: [1, 2, 3, 4],
+            noOkThirdArg: 5
+        }, {
+            results: [14, 56, 126, 224]
+        });
+    });
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+describe('Calc - как рапилить тест на атомарные блоки.', () => {
+    it('Пилим - пилим - пилим!', () => {
+
+    });
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+interface IState {
+    instance: Calc
+}
+
+const data = {
+    firstArg: 7,
+    inc: 2,
+    thirdArgs: [1, 2, 3, 4],
+    results: [10, 13, 16, 19],
+    noOkThirdArg: 5
 };
 
 const atomicTests = {
@@ -111,68 +224,6 @@ const atomicTests = {
 };
 
 describe('Calc', () => {
-    it('Проверяем сложение- 1', () => {
-        const calc = new Calc(7, 2);
-        assert.equal(calc.sum(1), 10);
-        assert.equal(calc.sum(2), 13);
-        assert.equal(calc.sum(3), 16);
-        assert.equal(calc.sum(4), 19);
-        calc.destroy();
-        assert.equal(calc.sum(5), undefined);
-    });
-
-    it('Проверяем сложение- 2', () => {
-        const calc = new Calc(7, 2);
-        assert.equal(calc.sum(2), 11);
-        assert.equal(calc.sum(3), 14);
-        assert.equal(calc.sum(4), 17);
-        assert.equal(calc.sum(5), 20);
-        calc.destroy();
-        assert.equal(calc.sum(6), undefined);
-    });
-
-    it('Проверяем сложение- 3', () => {
-        const calc = new Calc(8, 2);
-        assert.equal(calc.sum(1), 11);
-        assert.equal(calc.sum(2), 14);
-        assert.equal(calc.sum(3), 17);
-        assert.equal(calc.sum(4), 20);
-        calc.destroy();
-        assert.equal(calc.sum(5), undefined);
-    });
-
-    it('Проверяем сложение- 4', () => {
-        const calc = new Calc(8, 2);
-        assert.equal(calc.sum(2), 12);
-        assert.equal(calc.sum(3), 15);
-        assert.equal(calc.sum(4), 18);
-        assert.equal(calc.sum(5), 21);
-        calc.destroy();
-        assert.equal(calc.sum(6), undefined);
-    });
-
-    it('Проверяем сложение- 1.1', () => {
-        bigTests.sum({
-            firstArg: 7,
-            inc: 2,
-            thirdArgs: [1, 2, 3, 4],
-            noOkThirdArg: 5
-        }, {
-            results: [10, 13, 16, 19]
-        });
-    });
-
-    it('Проверяем умножение- 2.1', () => {
-        bigTests.mult({
-            firstArg: 7,
-            inc: 2,
-            thirdArgs: [1, 2, 3, 4],
-            noOkThirdArg: 5
-        }, {
-            results: [14, 56, 126, 224]
-        });
-    });
-
     const state: IState = {
         instance: undefined
     };
